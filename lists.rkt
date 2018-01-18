@@ -43,7 +43,14 @@
 ;average
 ; returns the average of the input list
 (define (average lst)
-  true
+  (avgHelp lst 0 0)
+  );end function
+
+(define (avgHelp lst sum count)
+  (if (empty? lst)
+      (if(zero? count) count
+         (/ sum count))
+      (avgHelp (rest lst) (+ sum (first lst)) (+ count 1)))
   );end function
 
 ;convert
@@ -70,12 +77,34 @@
 ; n is non-negative number < length of the list
 ; returns nth item of the list using zero-based indexing
 ;i.e list 1 2 3 4 n = 2 returns 3
-(define (get-nth lst)
-  true)
+(define (get-nth lst n)
+  (getHelp lst n 0)
+  );end function
 
+(define (getHelp lst n index)
+  (if (empty? lst) "not in list"
+      (if (= n index) (first lst)
+          (getHelp (rest lst) n (+ index 1))
+          );inner if
+      );end if
+  );end function
 ;find-item
 ; returns the index of the value in the list that matches the 'target' val
 ; i.e list 1 2 3 4 target = 3 returns 2
 ; if item dne in list, return -1
 (define (find-item lst target)
-  true)
+  (if(empty? lst) false
+     (if (= (first lst) target) true
+         (find-item (rest lst) target)
+     );end inner if
+   );end if
+ );end function
+
+;For lab 3
+(define a (list 1 2 3 4 5 6 7))
+
+(map even? a)
+(map (lambda (x) (+ x 1)) a)
+(filter even? a)
+
+
