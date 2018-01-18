@@ -77,6 +77,7 @@
 ; n is non-negative number < length of the list
 ; returns nth item of the list using zero-based indexing
 ;i.e list 1 2 3 4 n = 2 returns 3
+
 (define (get-nth lst n)
   (getHelp lst n 0)
   );end function
@@ -88,10 +89,12 @@
           );inner if
       );end if
   );end function
+
 ;find-item
 ; returns the index of the value in the list that matches the 'target' val
 ; i.e list 1 2 3 4 target = 3 returns 2
 ; if item dne in list, return -1
+
 (define (find-item lst target)
   (if(empty? lst) false
      (if (= (first lst) target) true
