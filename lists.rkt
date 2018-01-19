@@ -114,11 +114,4 @@
          (find-helper (rest lst) target (+ 1 index)))
      )
   )
-;For lab 3
-;(define a (list 1 2 3 4 5 6 7))
-
-;(map even? a)
-;(map (lambda (x) (+ x 1)) a)
-;(filter even? a)
-
 
