@@ -9,7 +9,7 @@ if __name__ == "__main__":
     fn = sys.argv[1]
     tmp_fn = "tmp.rkt"
     feedback_fn = "feedback.txt"
-    run_cmd = "racket"
+    run_cmd = "/Applications/Racket/bin/racket"
     tests = """
 
 (check-temps1 (list 80 92 56))

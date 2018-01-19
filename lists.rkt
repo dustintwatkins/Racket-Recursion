@@ -105,18 +105,20 @@
 ; if item dne in list, return -1
 
 (define (find-item lst target)
-  (if(empty? lst) -1
-     (if (= (first lst) target) target
-         (find-item (rest lst) target)
-     );end inner if
-   );end if
+  (find-helper lst target 0)
  );end function
 
+(define (find-helper lst target index)
+    (if(empty? lst) -1
+     (if (= (first lst) target) index
+         (find-helper (rest lst) target (+ 1 index)))
+     )
+  )
+;For lab 3
+;(define a (list 1 2 3 4 5 6 7))
 
-
-
-
-
-
+;(map even? a)
+;(map (lambda (x) (+ x 1)) a)
+;(filter even? a)
 
 
