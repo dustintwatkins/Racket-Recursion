@@ -70,8 +70,17 @@
 ;eliminate-larger
 ; removes any numbers from list that are larger than the following number
 ;i.e list 1 2 3 5 4 9 returns list 1 2 3 4 5
+
 (define (eliminate-larger lst)
-  true)
+  (if (empty? lst)
+      empty
+      (local [(define larger (eliminate-larger (rest lst)))]
+        (if (and (not (empty? larger)) (> (first lst) (first larger)))
+            larger
+            (cons (first lst) larger))
+        )
+      )
+  )
 
 ;get-nth
 ; n is non-negative number < length of the list
@@ -96,18 +105,18 @@
 ; if item dne in list, return -1
 
 (define (find-item lst target)
-  (if(empty? lst) false
-     (if (= (first lst) target) true
+  (if(empty? lst) -1
+     (if (= (first lst) target) target
          (find-item (rest lst) target)
      );end inner if
    );end if
  );end function
 
-;For lab 3
-(define a (list 1 2 3 4 5 6 7))
 
-(map even? a)
-(map (lambda (x) (+ x 1)) a)
-(filter even? a)
+
+
+
+
+
 
 
