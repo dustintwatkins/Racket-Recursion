@@ -56,7 +56,7 @@
 ;convert
 ; returns a list of digits in the reverse order it was received, i.e 123 returns 321
 (define (convert temps)
-      (if (empty? temps) empty
+      (if (empty? temps) 0
           (convertHelper(reverse temps) 0)          
       );end if
   );end function
